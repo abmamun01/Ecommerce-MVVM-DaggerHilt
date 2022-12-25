@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1074286037672",
+    "firebase_url": "https://fireapp-android-app-v1-3-2b8b5-default-rtdb.firebaseio.com",
+    "project_id": "fireapp-android-app-v1-3-2b8b5",
+    "storage_bucket": "fireapp-android-app-v1-3-2b8b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074286037672:android:8ec4e4c51b73b4f8c8109d",
+        "android_client_info": {
+          "package_name": "com.mamunsproject.ecommerce_mvvm_dg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074286037672-ncq2qli3oe10s7cvovs6hevaodak0gqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdewV_QAOULoWM4BLfHdAI8nVgSDllkTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074286037672-ncq2qli3oe10s7cvovs6hevaodak0gqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
