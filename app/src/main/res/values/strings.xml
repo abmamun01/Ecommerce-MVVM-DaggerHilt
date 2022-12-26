@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ecommerce-MVVM-DG</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rightAddress">The Right Address\nFor Shopping\nAny Day</string>
+    <string name="quality">it is very easy to reach the\n best quality among the\n products on the internet</string>
 </resources>
