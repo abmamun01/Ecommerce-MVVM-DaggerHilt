@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="rightAddress">The Right Address\nFor Shopping\nAny Day</string>
     <string name="quality">it is very easy to reach the\n best quality among the\n products on the internet</string>
+    <string name="let_s_login">Let\'s Login</string>
+    <string name="donthaveAccount">Don\'t Have an Account? Register</string>
 </resources>
