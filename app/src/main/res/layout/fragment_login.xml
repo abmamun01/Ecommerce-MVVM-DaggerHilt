@@ -59,7 +59,7 @@
 
 
         <EditText
-            android:id="@+id/edEmailLogin"
+            android:id="@+id/edEmailRegister"
             style="@style/editText"
             android:layout_width="0dp"
             android:layout_height="@dimen/editTextheight"
@@ -72,7 +72,7 @@
 
 
         <EditText
-            android:id="@+id/edPassWordLogin"
+            android:id="@+id/edPassWordRegister"
             style="@style/editText"
             android:layout_width="0dp"
             android:layout_height="@dimen/editTextheight"
@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="@id/guidLineLoginRight"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guidLineLoginLeft"
-            app:layout_constraintTop_toBottomOf="@+id/edEmailLogin"
+            app:layout_constraintTop_toBottomOf="@+id/edEmailRegister"
             app:layout_goneMarginTop="15dp" />
 
         <TextView
@@ -95,11 +95,11 @@
             android:gravity="center"
             android:text="Forgot Password"
             app:layout_constraintStart_toStartOf="@+id/guidLineLoginLeft"
-            app:layout_constraintTop_toBottomOf="@+id/edPassWordLogin" />
+            app:layout_constraintTop_toBottomOf="@+id/edPassWordRegister" />
 
 
         <ImageView
-            android:id="@+id/facebookLogin"
+            android:id="@+id/facebookRegister"
             android:layout_width="wrap_content"
 
             android:layout_height="wrap_content"
@@ -115,15 +115,15 @@
 
             android:src="@drawable/facebook_login"
             android:text="FaceBook"
-            app:layout_constraintBottom_toBottomOf="@+id/facebookLogin"
-            app:layout_constraintEnd_toEndOf="@+id/facebookLogin"
+            app:layout_constraintBottom_toBottomOf="@+id/facebookRegister"
+            app:layout_constraintEnd_toEndOf="@+id/facebookRegister"
             app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="@+id/facebookLogin"
-            app:layout_constraintTop_toTopOf="@+id/facebookLogin" />
+            app:layout_constraintStart_toStartOf="@+id/facebookRegister"
+            app:layout_constraintTop_toTopOf="@+id/facebookRegister" />
 
 
         <ImageView
-            android:id="@+id/googleLogin"
+            android:id="@+id/googleRegister"
             android:layout_width="wrap_content"
 
             android:layout_height="wrap_content"
@@ -139,11 +139,11 @@
 
             android:src="@drawable/facebook_login"
             android:text="Google"
-            app:layout_constraintBottom_toBottomOf="@+id/googleLogin"
-            app:layout_constraintEnd_toEndOf="@+id/googleLogin"
+            app:layout_constraintBottom_toBottomOf="@+id/googleRegister"
+            app:layout_constraintEnd_toEndOf="@+id/googleRegister"
             app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toStartOf="@+id/googleLogin"
-            app:layout_constraintTop_toTopOf="@+id/googleLogin" />
+            app:layout_constraintStart_toStartOf="@+id/googleRegister"
+            app:layout_constraintTop_toTopOf="@+id/googleRegister" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonLogin"

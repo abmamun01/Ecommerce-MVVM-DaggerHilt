@@ -8,6 +8,7 @@ import com.mamunsproject.ecommerce_mvvm_dg.utils.Resources
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,11 +17,15 @@ class RegisterViewModel @Inject constructor(
 ) : ViewModel() {
 
     // For observing fragment we use Mutable
-    private val _register = MutableStateFlow<Resources<FirebaseUser>>(Resources.Loading())
+    private val _register = MutableStateFlow<Resources<FirebaseUser>>(Resources.Unspecified())
     val register: Flow<Resources<FirebaseUser>> = _register
 
 
     fun createAccountWithEmailAndPassword(user: User, password: String) {
+
+        runBlocking {
+            _register.emit(Resources.Loading())
+        }
         firebaseAuth.createUserWithEmailAndPassword(user.email, password)
             .addOnSuccessListener {
 
