@@ -11,10 +11,13 @@ import androidx.lifecycle.lifecycleScope
 import com.mamunsproject.ecommerce_mvvm_dg.R
 import com.mamunsproject.ecommerce_mvvm_dg.data.User
 import com.mamunsproject.ecommerce_mvvm_dg.databinding.FragmentRegisterBinding
+import com.mamunsproject.ecommerce_mvvm_dg.utils.RegisterValidation
 import com.mamunsproject.ecommerce_mvvm_dg.utils.Resources
 import com.mamunsproject.ecommerce_mvvm_dg.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
@@ -68,6 +71,29 @@ class RegisterFragment : Fragment() {
                     }
 
                     else -> Unit
+                }
+            }
+        }
+
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.validation.collect { validation ->
+                if (validation.email is RegisterValidation.Failed) {
+                    withContext(Dispatchers.Main) {
+                        binding.edEmailRegister.apply {
+                            requestFocus()
+                            error = validation.email.message
+                        }
+                    }
+                }
+
+                if (validation.password is RegisterValidation.Failed){
+                    withContext(Dispatchers.Main){
+                        binding.edPassWordRegister.apply {
+                            requestFocus()
+                            error=validation.password.message
+                        }
+                    }
                 }
             }
         }
