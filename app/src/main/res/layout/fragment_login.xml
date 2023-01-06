@@ -59,7 +59,7 @@
 
 
         <EditText
-            android:id="@+id/edEmailRegister"
+            android:id="@+id/edEmailLogin"
             style="@style/editText"
             android:layout_width="0dp"
             android:layout_height="@dimen/editTextheight"
@@ -72,7 +72,7 @@
 
 
         <EditText
-            android:id="@+id/edPassWordRegister"
+            android:id="@+id/edPassWordLogin"
             style="@style/editText"
             android:layout_width="0dp"
             android:layout_height="@dimen/editTextheight"
@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="@id/guidLineLoginRight"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guidLineLoginLeft"
-            app:layout_constraintTop_toBottomOf="@+id/edEmailRegister"
+            app:layout_constraintTop_toBottomOf="@+id/edEmailLogin"
             app:layout_goneMarginTop="15dp" />
 
         <TextView
@@ -95,7 +95,7 @@
             android:gravity="center"
             android:text="Forgot Password"
             app:layout_constraintStart_toStartOf="@+id/guidLineLoginLeft"
-            app:layout_constraintTop_toBottomOf="@+id/edPassWordRegister" />
+            app:layout_constraintTop_toBottomOf="@+id/edPassWordLogin" />
 
 
         <ImageView
@@ -145,21 +145,22 @@
             app:layout_constraintStart_toStartOf="@+id/googleRegister"
             app:layout_constraintTop_toTopOf="@+id/googleRegister" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonLogin"
             style="@style/blueButtonStyle"
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
             android:layout_marginTop="15dp"
             android:text="Login"
-
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guidLineLoginRight"
 
+            app:layout_constraintEnd_toStartOf="@+id/guidLineLoginRight"
             app:layout_constraintHorizontal_bias="0.496"
+
             app:layout_constraintStart_toStartOf="@+id/guidLineLoginLeft"
             app:layout_constraintTop_toBottomOf="@+id/tvForgotPasswordLogin"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:spinning_bar_color="@color/white" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidLineLoginLeft"

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.mamunsproject.ecommerce_mvvm_dg.R
 import com.mamunsproject.ecommerce_mvvm_dg.data.User
 import com.mamunsproject.ecommerce_mvvm_dg.databinding.FragmentRegisterBinding
@@ -39,6 +40,10 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.tvDontHaveAccount.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
 
 
         binding.apply {
@@ -87,11 +92,11 @@ class RegisterFragment : Fragment() {
                     }
                 }
 
-                if (validation.password is RegisterValidation.Failed){
-                    withContext(Dispatchers.Main){
+                if (validation.password is RegisterValidation.Failed) {
+                    withContext(Dispatchers.Main) {
                         binding.edPassWordRegister.apply {
                             requestFocus()
-                            error=validation.password.message
+                            error = validation.password.message
                         }
                     }
                 }

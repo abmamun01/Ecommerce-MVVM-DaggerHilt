@@ -1,17 +1,38 @@
 package com.mamunsproject.ecommerce_mvvm_dg.fragments.loginRegister
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.mamunsproject.ecommerce_mvvm_dg.R
+import com.mamunsproject.ecommerce_mvvm_dg.databinding.FragmentAcountOptionBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.mamunsproject.ecommerce_mvvm_dg.databinding.FragmentIntroductionBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AccountOptionFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AccountOptionFragment : Fragment() {
+    private lateinit var binding: FragmentAcountOptionBinding
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentAcountOptionBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.buttonLoginAccountOption.setOnClickListener {
+            findNavController().navigate(R.id.action_accountOptionFragment_to_loginFragment)
+        }
+
+
+        binding.buttonRegisterAccountOption.setOnClickListener {
+            findNavController().navigate(R.id.action_accountOptionFragment_to_registerFragment)
+        }
+    }
 }
