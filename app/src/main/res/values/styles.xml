@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="h4">
         <item name="android:fontFamily">@font/poppins_thin</item>
         <item name="android:textColor">@color/g_black</item>
@@ -42,6 +43,12 @@
         <item name="android:fontFamily">@font/poppins_light</item>
     </style>
 
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
+    </style>
 
 
 </resources>

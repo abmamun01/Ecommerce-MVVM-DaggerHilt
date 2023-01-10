@@ -22,6 +22,11 @@ class LoginViewModel @Inject constructor(
     val login = _login.asSharedFlow()
 
 
+    // to use onetime event to ui use- sharedflow
+    private val _resetPassword = MutableSharedFlow<Resources<String>>()
+    val resetPassword = _resetPassword.asSharedFlow()
+
+
     fun login(email: String, password: String) {
 
         viewModelScope.launch { _login.emit(Resources.Loading()) }
@@ -39,5 +44,24 @@ class LoginViewModel @Inject constructor(
                 _login.emit(Resources.Error(it.message.toString()))
             }
         }
+    }
+
+
+    fun resetPassword(email: String) {
+
+        viewModelScope.launch {
+            _resetPassword.emit(Resources.Loading())
+        }
+        firebaseAuth.sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resources.Success(email))
+                }
+            }.addOnFailureListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resources.Error(it.message.toString()))
+                }
+            }
+
     }
 }
