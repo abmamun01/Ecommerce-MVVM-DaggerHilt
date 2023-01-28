@@ -3,6 +3,7 @@ package com.mamunsproject.ecommerce_mvvm_dg.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.mamunsproject.ecommerce_mvvm_dg.R
 import com.mamunsproject.ecommerce_mvvm_dg.databinding.ActivityShoppingBinding
@@ -17,7 +18,12 @@ class ShoppingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping)
 
-        val navController = findNavController(R.id.shoppingHostFragment)
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.shoppingHostFragment) as NavHostFragment
+
+        val navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
+
+
     }
 }
