@@ -80,12 +80,12 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayoutID"
         android:layout_width="match_parent"
-        app:tabIndicator="@null"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeHeader"
+        app:tabIndicator="@null"
         app:tabMode="scrollable"
         app:tabRippleColor="@color/white"
         app:tabSelectedTextColor="@color/black"
@@ -97,9 +97,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tabLayoutID"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayoutID" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
