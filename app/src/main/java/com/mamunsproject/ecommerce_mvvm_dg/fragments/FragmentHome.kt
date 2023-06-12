@@ -52,6 +52,8 @@ class FragmentHome : Fragment() {
             }
         }.attach()
 
+
+        binding.viewPagerHome.isUserInputEnabled = false
     }
 
 
