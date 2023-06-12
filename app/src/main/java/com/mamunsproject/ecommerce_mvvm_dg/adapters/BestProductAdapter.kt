@@ -1,5 +1,6 @@
 package com.mamunsproject.ecommerce_mvvm_dg.adapters
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ class BestProductAdapter : RecyclerView.Adapter<BestProductAdapter.BestProductVi
                     val remainingPricePercenage = 1f - it
                     val priceAfterOffer = remainingPricePercenage * product.price
                     tvNewPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
+                    tvPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 }
                 if (product.offerPercentage == null) tvNewPrice.visibility = View.INVISIBLE
 
