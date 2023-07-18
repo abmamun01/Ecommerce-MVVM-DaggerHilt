@@ -29,6 +29,10 @@ class MainCategoryViewModel @Inject constructor(private val firestore: FirebaseF
     val bestProducts: StateFlow<Resources<List<Product>>> = _bestProducts
 
 
+    // Paging
+    private var pagingInfo = PagingInfo()
+
+
     init {
         fetchSpecialProducts()
         fetchBestDeals()
@@ -71,6 +75,7 @@ class MainCategoryViewModel @Inject constructor(private val firestore: FirebaseF
                 viewModelScope.launch {
                     _bestDealsProduct.emit(Resources.Success(bestDealsProduct))
                 }
+                pagingInfo.bestProductsPage++
 
             }.addOnFailureListener {
 
@@ -78,32 +83,37 @@ class MainCategoryViewModel @Inject constructor(private val firestore: FirebaseF
                     _bestDealsProduct.emit(Resources.Error(it.message.toString()))
                 }
             }
-
-
     }
-
 
     fun fetchBestProduct() {
-        viewModelScope.launch {
-            _bestProducts.emit(Resources.Loading())
-        }
-
-
-        firestore.collection("Products")
-            .get()
-            .addOnSuccessListener { result ->
-                val bestProducts = result.toObjects(Product::class.java)
-                viewModelScope.launch {
-                    _bestProducts.emit(Resources.Success(bestProducts))
-                }
-
-            }.addOnFailureListener {
-
-                viewModelScope.launch {
-                    _bestProducts.emit(Resources.Error(it.message.toString()))
-                }
+   //     if (!pagingInfo.isPagingEnd) {
+            viewModelScope.launch {
+                _bestProducts.emit(Resources.Loading())
             }
 
-    }
+            firestore.collection("Products")
+                .limit(pagingInfo.bestProductsPage * 10).get()
+                .addOnSuccessListener { result ->
+                    val bestProducts = result.toObjects(Product::class.java)
 
+                    pagingInfo.isPagingEnd = bestProducts == pagingInfo.oldBestProducts
+                    pagingInfo.oldBestProducts = bestProducts
+
+                    viewModelScope.launch {
+                        _bestProducts.emit(Resources.Success(bestProducts))
+                    }
+                }.addOnFailureListener {
+
+                    viewModelScope.launch {
+                        _bestProducts.emit(Resources.Error(it.message.toString()))
+                    }
+                }
+        }
+   // }
 }
+
+internal data class PagingInfo(
+    var bestProductsPage: Long = 2,
+    var oldBestProducts: List<Product> = emptyList(),
+    var isPagingEnd: Boolean = false
+)
